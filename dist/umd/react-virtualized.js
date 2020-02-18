@@ -8602,7 +8602,7 @@
               cellProps: {
                 'aria-colindex': columnIndex + 1,
                 'aria-describedby': id,
-                className: (0, _clsx2.default)(
+                className: clsx(
                   'ReactVirtualized__Table__rowColumn',
                   className,
                 ),
