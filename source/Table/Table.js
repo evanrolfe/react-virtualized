@@ -494,13 +494,13 @@ export default class Table extends React.PureComponent {
       cellProps: {
         'aria-colindex': columnIndex + 1,
         'aria-describedby': id,
-        className: (0, _clsx2.default)('ReactVirtualized__Table__rowColumn', className),
+        className: clsx('ReactVirtualized__Table__rowColumn', className),
         key: 'Row' + rowIndex + '-' + 'Col' + columnIndex,
         onClick: onClick,
         role: 'gridcell',
         style: style,
-        title: title
-      }
+        title: title,
+      },
     };
   }
 
