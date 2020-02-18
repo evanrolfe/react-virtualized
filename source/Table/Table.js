@@ -485,19 +485,23 @@ export default class Table extends React.PureComponent {
     // Avoid using object-spread syntax with multiple objects here,
     // Since it results in an extra method call to 'babel-runtime/helpers/extends'
     // See PR https://github.com/bvaughn/react-virtualized/pull/942
-    return (
-      <div
-        aria-colindex={columnIndex + 1}
-        aria-describedby={id}
-        className={clsx('ReactVirtualized__Table__rowColumn', className)}
-        key={'Row' + rowIndex + '-' + 'Col' + columnIndex}
-        onClick={onClick}
-        role="gridcell"
-        style={style}
-        title={title}>
-        {renderedCell}
-      </div>
-    );
+    return {
+      columnProps: {
+        columnData: columnData,
+        columnIndex: columnIndex,
+        dataKey: dataKey,
+      },
+      cellProps: {
+        'aria-colindex': columnIndex + 1,
+        'aria-describedby': id,
+        className: (0, _clsx2.default)('ReactVirtualized__Table__rowColumn', className),
+        key: 'Row' + rowIndex + '-' + 'Col' + columnIndex,
+        onClick: onClick,
+        role: 'gridcell',
+        style: style,
+        title: title
+      }
+    };
   }
 
   _createHeader({column, index}) {
